@@ -1,0 +1,125 @@
+.line-1 {
+  position: absolute;
+  left: 0;
+  top: 53vh;
+}
+
+.line-2 {
+  position: absolute;
+  top: 0;
+  right: 44.5vw;
+}
+
+.line-3 {
+  position: absolute;
+  bottom: 0;
+  right: 30vw;
+}
+
+.header-div {
+  position: absolute;
+  display: flex;
+  top: 40vh;
+  left: 30vw;
+}
+.nav {
+  position: absolute;
+  bottom: 14vh;
+  left: 4vw
+}
+
+.nav-list {
+  list-style: none;
+}
+
+.nav-list li {
+  margin: 40px;
+  font-size: 2.5rem;
+}
+
+.name-div {
+  position: absolute;
+  height: 110px;
+  width: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  top: 24vh;
+  right: 15.5vw;
+}
+
+.header-name1 {
+  display: block;
+  width: 160px;
+  height: 91px;
+  align-self: flex-start;
+}
+
+.header-name2 {
+  display: block;
+  width: 222.19px;
+  height: 91px;
+  align-self: flex-end;
+}
+
+.header-name1 h1 {
+  font-size: 5rem;
+  font-weight: normal;
+}
+
+.header-name2 h1 {
+  font-size: 5rem;
+  font-weight: normal;
+}
+
+.header-div {
+  position: absolute;
+  display: flex;
+  width: 790px;
+  height: 140px;
+  align-items: center;
+  justify-content: space-around;
+  top: 33vh;
+  left: 14vw;
+}
+.header-text-div1 {
+  width: auto;
+  height: 91px;
+  align-self: flex-start;
+}
+.header-text-div2{
+  height: 55px;
+  align-self: flex-end;
+}
+.header-text1 {
+  font-size: 5rem;
+  font-weight: normal;
+}
+.header-text2 {
+  font-size: 3rem;
+  font-weight: normal;
+}
+
+.mode {
+  display: flex;
+  position: absolute;
+  bottom: 3vh;
+  align-items: center;
+  right: 14vw;
+}
+.mode span {
+  display: inline-block;
+  font-size: 2rem;
+  margin-left: 5px;
+}
+
+
+
+.mode input{
+  margin-left: 15px;
+  width: 24px;
+  height: 24px;
+  border-color: black;
+  border-style: solid;
+  border-width: 1px;
+}
