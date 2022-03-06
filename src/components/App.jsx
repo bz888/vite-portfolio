@@ -5,13 +5,19 @@ import { RandomGen } from './RandomGen'
 function App() {
 	const [currentMode, setCurrentMode] = useState('light')
 	const [randomChar, setRandomChar] = useState('FULL-STACK')
-	const [toggle, setToggle]= useState(true)
+	const [repeatVal, setRepeatVal] = useState(0)
 	useEffect(()=>{
-		setRandomChar(()=> RandomGen(randomChar))
-		
-	},[])
-	function timer(){
+		if (repeatVal < 40) {
+			loop()
+		}
+		if (repeatVal >= 40) {
+			setRandomChar(()=> 'FULL-STACK')
+		}
+	},[repeatVal])
 
+	function loop () {
+		setRandomChar(RandomGen('FULL-STACK'))	
+		setTimeout(()=>setRepeatVal(repeatVal + 1), 60)
 	}
 
 	const lineStyle1 = {
@@ -37,22 +43,29 @@ function App() {
 	const lineAnim1 = {
 		x: [-1120, 0],
 		duration: 0.1,
-		ease: 'easeOut'
+		// ease: 'easeOut'
 	}
 	const lineAnim2 = {
 		duration: 2,
 		y: [-384, 0],
-		ease: 'easeOut'
+		// ease: 'easeOut'
 	}
 	const lineAnim3 = {
 		duration: 2,
 		y: [576, 0],
-		ease: 'easeOut'
+		// ease: 'easeOut'
 	}
 
 	const modeBox = {
 		backgroundColor: 'black'
 	}
+	 function handleClick (e) {
+		console.log(e.target.id)
+		const id = e.target.id
+		if (id === 'home') {
+
+		}
+	 }
 
 	return (
 		<>
@@ -86,9 +99,23 @@ function App() {
 
 				<motion.div className='nav'>
 					<ul className='nav-list'>
-						<li>HOME</li>
-						<li>PROJECTS</li>
-						<li>CONTACT</li>
+						<motion.li
+							whileInView={{x: [ -50 , 0 ]}}
+							id='home'
+							onClick={handleClick}
+						>HOME</motion.li>
+
+						<motion.li
+							whileInView={{x: [ -150 , 0 ]}}
+							id='projects'
+							onClick={handleClick}
+						>PROJECTS</motion.li>
+
+						<motion.li
+							whileInView={{x: [ -200 , 0 ]}}
+							id='contact'
+							onClick={handleClick}
+						>CONTACT</motion.li>
 					</ul>
 				</motion.div>
 

@@ -22,6 +22,7 @@
   top: 40vh;
   left: 30vw;
 }
+
 .nav {
   position: absolute;
   bottom: 14vh;
@@ -35,6 +36,9 @@
 .nav-list li {
   margin: 40px;
   font-size: 2.5rem;
+}
+.nav-list li:hover {
+  cursor: pointer;
 }
 
 .name-div {
