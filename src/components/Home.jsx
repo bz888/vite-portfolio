@@ -1,5 +1,81 @@
-import React from 'react'
+
+import { motion } from 'framer-motion'
+import React , { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import '../css/app.css'
+import { RandomGen } from './RandomGen'
+
 export default function Home () {
+	const navigate = useNavigate()
+	const [randomChar, setRandomChar] = useState('FULL-STACK')
+	const [repeatVal, setRepeatVal] = useState(0)
+	useEffect(()=>{
+		if (repeatVal < 40) {
+			loop()
+		}
+		if (repeatVal >= 40) {
+			setRandomChar(()=> 'FULL-STACK')
+		}
+	},[repeatVal])
+
+	function loop () {
+		setRandomChar(RandomGen('FULL-STACK'))	
+		setTimeout(()=>setRepeatVal(repeatVal + 1), 20)
+	}
+
+	const lineStyle1 = {
+		display: 'block',
+		width: '70rem',
+		height: '2px',
+		backgroundColor: 'black'
+	}
+	
+	const lineStyle2 = {
+		display: 'block',
+		width: '2px',
+		height: '24rem',
+		backgroundColor: 'black'
+	}
+	const lineStyle3 = {
+		display: 'block',
+		width: '2px',
+		height: '36rem',
+		backgroundColor: 'black'
+	}
+
+	const lineAnim1 = {
+		x: [-1120, 0],
+		duration: 0.1,
+		// ease: 'easeOut'
+	}
+	const lineAnim2 = {
+		duration: 2,
+		y: [-384, 0],
+		// ease: 'easeOut'
+	}
+	const lineAnim3 = {
+		duration: 2,
+		y: [576, 0],
+		// ease: 'easeOut'
+	}
+
+	 function handleClick (e) {
+		console.log(e.target.id)
+		const id = e.target.id
+		switch(id){
+		case 'home':
+			navigate('/')
+			break
+		case 'projects':
+			navigate('/projects')
+			break
+		case 'contacts':
+			navigate('/contacts')
+			break
+		default:
+			break
+		}
+	}
 	return (
 		<>
 			<motion.div className='header-div'>
