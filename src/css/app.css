@@ -1,3 +1,4 @@
+/* lines home page */
 .line-1 {
   position: absolute;
   left: 0;
@@ -16,13 +17,7 @@
   right: 30vw;
 }
 
-.header-div {
-  position: absolute;
-  display: flex;
-  top: 40vh;
-  left: 30vw;
-}
-
+/* nav bar */
 .nav {
   position: absolute;
   bottom: 14vh;
@@ -41,6 +36,7 @@
   cursor: pointer;
 }
 
+/* BEN ZHAO text home page */
 .name-div {
   position: absolute;
   height: 110px;
@@ -76,6 +72,7 @@
   font-weight: normal;
 }
 
+/* FULL-STACK developer text  */
 .header-div {
   position: absolute;
   display: flex;
@@ -104,6 +101,55 @@
   font-weight: normal;
 }
 
+
+/* line project page */
+.line-p-1 {
+  position: absolute;
+  left: 13vw;
+  bottom: 0;
+}
+.line-p-2 {
+  position: absolute;
+  right: 0;
+}
+.line-p-3 {
+  position: absolute;
+  right: 0;
+  top: 40vh;
+}
+
+/* BEN ZHAO project name header */
+.name-p-div {
+  align-items: center;
+  display: flex;
+  width: 630px;
+  height: 50px;
+  position: absolute;
+  right: 0;
+  top: 8vh;
+}
+
+.p-name-header {
+  /* position: absolute; */
+  display: inline-block;
+  font-size: 2.5rem;
+  font-weight: normal;
+}
+
+/* projects-div */
+.projects-div {
+  width: 600px;
+  height: 600px;
+  position: absolute;
+  right: 28.7vw;
+  top: 25vh;
+  text-align: right;
+  /* display: flex; */
+  /* align-items: flex-start; */
+}
+
+/* light/dark mode  */
+
 .mode {
   display: flex;
   position: absolute;
@@ -116,8 +162,6 @@
   font-size: 2rem;
   margin-left: 5px;
 }
-
-
 
 .mode input{
   margin-left: 15px;
