@@ -11,6 +11,11 @@ import Projects from './Projects'
 
 function App() {
 	// const navigate = useNavigate()
+
+	//UseContext for setMode
+	// Change animations into animate and variant, switch from whileinview
+	// Hover on projects, show project description
+
 	const [currentMode, setCurrentMode] = useState('black')
 	const [checkedState, setCheckedState] = useState({light: true, dark: false})
 

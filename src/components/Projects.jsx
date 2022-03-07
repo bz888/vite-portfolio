@@ -94,12 +94,14 @@ export default function Projects ({ currentMode }) {
 					>■ Projects &#40;web apps&#41;</motion.h2>
 					<motion.a className='project-item'
 						href=''
+						target='_blank' rel="noreferrer"
 						whileInView={{x: [200, 0]}}>
 						<div style={{color:currentMode}} className='project-title'>Two Truths One Lie</div>
 						<div style={{color:currentMode}} className='project-info'>2022/Commission</div>
 					</motion.a>
 					<motion.a className='project-item'
 						href='https://afternewmedia.herokuapp.com/'
+						target='_blank' rel="noreferrer"
 						whileInView={{x: [300, 0]}}>
 						<div style={{color:currentMode}} className='project-title'>Afternewmedia</div>
 						<div style={{color:currentMode}} className='project-info'>2021/Commission</div>
@@ -112,9 +114,17 @@ export default function Projects ({ currentMode }) {
 					</motion.a>
 					<motion.a className='project-item'
 						href='https://git-gud-eda-test.herokuapp.com/'
+						target='_blank' rel="noreferrer"
 						whileInView={{x: [500, 0]}}>
 						<div style={{color:currentMode}} className='project-title'>SideScroller</div>
 						<div style={{color:currentMode}} className='project-info'>2021/Course work</div>
+					</motion.a>
+					<motion.a className='project-item'
+						href='https://bz888.github.io/portfolio-v1/'
+						target='_blank' rel="noreferrer"
+						whileInView={{x: [500, 0]}}>
+						<div style={{color:currentMode}} className='project-title'>Somezine</div>
+						<div style={{color:currentMode}} className='project-info'>2020/Graduation Project</div>
 					</motion.a>
 				</motion.div>
 
