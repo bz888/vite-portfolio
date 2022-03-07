@@ -15,6 +15,7 @@ function App() {
 	//UseContext for setMode
 	// Change animations into animate and variant, switch from whileinview
 	// Hover on projects, show project description
+	// media queries
 
 	const [currentMode, setCurrentMode] = useState('black')
 	const [checkedState, setCheckedState] = useState({light: true, dark: false})
