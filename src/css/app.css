@@ -141,11 +141,31 @@
   width: 600px;
   height: 600px;
   position: absolute;
-  right: 28.7vw;
+  right: 22.5vw;
   top: 25vh;
   text-align: right;
   /* display: flex; */
   /* align-items: flex-start; */
+}
+.project-catalogue {
+  font-size: 1.5rem;
+  font-weight:200;
+}
+.project-item {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  align-items: baseline;
+  column-gap: 15px;
+  margin-top: 40px;
+  color: black;
+  text-decoration: none;
+}
+.project-info {
+  font-size: 1.2rem;
+}
+.project-title {
+  font-size: 3rem;
 }
 
 /* light/dark mode  */

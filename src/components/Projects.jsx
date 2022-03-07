@@ -64,11 +64,11 @@ export default function Projects () {
 				style={lineStyle1}
 				whileInView={lineAnim1}
 			/>
-			<motion.span 
+			{/* <motion.span 
 				className='line-p-3'
 				style={lineStyle3}
 				whileInView={lineAnim2}
-			/>
+			/> */}
 
 			<motion.div className='name-p-div'>
 				<motion.span
@@ -86,13 +86,33 @@ export default function Projects () {
 			<motion.div
 				className='projects-div'
 			>
-				<motion.ul className='project-ul'>
-					<li>Projects &#40;web apps&#41;</li>
-					<li>Two Truths One Lie</li>
-					<li>Afternewmedia</li>
-					<li>Brainf*ck interpreter</li>
-					<li>SideScroller</li>
-				</motion.ul>
+				<motion.div className='project-list'>
+					<h2 className='project-catalogue'>■ Projects &#40;web apps&#41;</h2>
+					<motion.a className='project-item'
+						href=''
+						whileInView={{x: [200, 0]}}>
+						<div className='project-title'>Two Truths One Lie</div>
+						<div className='project-info'>2022/Commission</div>
+					</motion.a>
+					<motion.a className='project-item'
+						href='https://afternewmedia.herokuapp.com/'
+						whileInView={{x: [300, 0]}}>
+						<div className='project-title'>Afternewmedia</div>
+						<div className='project-info'>2021/Commission</div>
+					</motion.a>
+					<motion.a className='project-item'
+						href=''
+						whileInView={{x: [400, 0]}}>
+						<div className='project-title'>Brainf*ck interpreter</div>
+						<div className='project-info'>2021/Personal</div>
+					</motion.a>
+					<motion.a className='project-item'
+						href='https://git-gud-eda-test.herokuapp.com/'
+						whileInView={{x: [500, 0]}}>
+						<div className='project-title'>SideScroller</div>
+						<div className='project-info'>2021/Course work</div>
+					</motion.a>
+				</motion.div>
 
 			</motion.div>
 

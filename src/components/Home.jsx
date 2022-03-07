@@ -10,17 +10,17 @@ export default function Home () {
 	const [randomChar, setRandomChar] = useState('FULL-STACK')
 	const [repeatVal, setRepeatVal] = useState(0)
 	useEffect(()=>{
-		if (repeatVal < 40) {
+		if (repeatVal < 20) {
 			loop()
 		}
-		if (repeatVal >= 40) {
+		if (repeatVal >= 20) {
 			setRandomChar(()=> 'FULL-STACK')
 		}
 	},[repeatVal])
 
 	function loop () {
 		setRandomChar(RandomGen('FULL-STACK'))	
-		setTimeout(()=>setRepeatVal(repeatVal + 1), 20)
+		setTimeout(()=>setRepeatVal(repeatVal + 1), 60)
 	}
 
 	const lineStyle1 = {
