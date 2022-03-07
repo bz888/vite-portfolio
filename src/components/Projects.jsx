@@ -1,7 +1,9 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
-export default function Projects () {
+
+Projects.propTypes
+export default function Projects ({ currentMode }) {
 	const navigate = useNavigate()
 
 
@@ -21,23 +23,23 @@ export default function Projects () {
 		display: 'block',
 		width: '2px',
 		height: '45rem',
-		backgroundColor: 'black'
+		backgroundColor: currentMode
 	}
 	const lineStyle2 = {
 		display: 'block',
 		width: '22rem',
 		height: '2px',
-		backgroundColor: 'black'
+		backgroundColor: currentMode
 	}
 	const lineStyle3 = {
 		display: 'block',
 		width: '22rem',
 		height: '2px',
-		backgroundColor: 'black'
+		backgroundColor: currentMode
 	}
 	const nameStyle = {
 		display: 'inline-block',
-		color: 'black'
+		color: currentMode
 	}
 	function handleClick (e) {
 		console.log(e.target.id)
@@ -49,8 +51,8 @@ export default function Projects () {
 		case 'projects':
 			navigate('/projects')
 			break
-		case 'contacts':
-			navigate('/contacts')
+		case 'contact':
+			navigate('/contact')
 			break
 		default:
 			break
@@ -87,38 +89,42 @@ export default function Projects () {
 				className='projects-div'
 			>
 				<motion.div className='project-list'>
-					<h2 className='project-catalogue'>■ Projects &#40;web apps&#41;</h2>
+					<motion.h2 style={{color:currentMode}} className='project-catalogue'
+						whileInView={{opacity: [0, 1]}}
+					>■ Projects &#40;web apps&#41;</motion.h2>
 					<motion.a className='project-item'
 						href=''
 						whileInView={{x: [200, 0]}}>
-						<div className='project-title'>Two Truths One Lie</div>
-						<div className='project-info'>2022/Commission</div>
+						<div style={{color:currentMode}} className='project-title'>Two Truths One Lie</div>
+						<div style={{color:currentMode}} className='project-info'>2022/Commission</div>
 					</motion.a>
 					<motion.a className='project-item'
 						href='https://afternewmedia.herokuapp.com/'
 						whileInView={{x: [300, 0]}}>
-						<div className='project-title'>Afternewmedia</div>
-						<div className='project-info'>2021/Commission</div>
+						<div style={{color:currentMode}} className='project-title'>Afternewmedia</div>
+						<div style={{color:currentMode}} className='project-info'>2021/Commission</div>
 					</motion.a>
 					<motion.a className='project-item'
 						href=''
 						whileInView={{x: [400, 0]}}>
-						<div className='project-title'>Brainf*ck interpreter</div>
-						<div className='project-info'>2021/Personal</div>
+						<div style={{color:currentMode}} className='project-title'>Brainf*ck interpreter</div>
+						<div style={{color:currentMode}} className='project-info'>2021/Personal</div>
 					</motion.a>
 					<motion.a className='project-item'
 						href='https://git-gud-eda-test.herokuapp.com/'
 						whileInView={{x: [500, 0]}}>
-						<div className='project-title'>SideScroller</div>
-						<div className='project-info'>2021/Course work</div>
+						<div style={{color:currentMode}} className='project-title'>SideScroller</div>
+						<div style={{color:currentMode}} className='project-info'>2021/Course work</div>
 					</motion.a>
 				</motion.div>
 
 			</motion.div>
 
 			<motion.div className='nav'>
-				<ul className='nav-list'>
+				<ul className='nav-list'
+					style={{color:currentMode}}>
 					<motion.li
+						
 						whileInView={{
 							x:  -30 ,
 							y: [200, -170],
@@ -128,12 +134,14 @@ export default function Projects () {
 					>HOME</motion.li>
 
 					<motion.li
+
 						whileInView={{ y:[0, -480]}}
 						id='projects'
 						onClick={handleClick}
 					>PROJECTS</motion.li>
 
 					<motion.li
+
 						whileInView={{
 							x: -30 , 
 							y: [200, 0],

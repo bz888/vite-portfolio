@@ -1,38 +1,57 @@
-import { motion } from 'framer-motion'
+// import { motion } from 'framer-motion'
 import React , { useEffect, useState } from 'react'
 import { Route, Routes, useNavigate } from 'react-router-dom'
+import { ThemeProvider } from 'styled-components'
+import { GlobalStyles } from './GlobalStyles'
+import { darkMode, lightMode } from '../styledComponents/Themes'
 import '../css/app.css'
+import Contact from './Contact'
 import Home from './Home'
 import Projects from './Projects'
 
 function App() {
-	const navigate = useNavigate()
-	const [currentMode, setCurrentMode] = useState('light')
+	// const navigate = useNavigate()
+	const [currentMode, setCurrentMode] = useState('black')
 
 	const modeBox = {
+		borderColor: 'black',
 		backgroundColor: 'black'
 	}
+
+	function handleChange (e) {
+		e.preventDefault()
+		const colorProfile = e.target.value
+		if (colorProfile === 'light') {
+			setCurrentMode('black')
+		} else if (colorProfile === 'dark') {
+			setCurrentMode('white')
+		} 
+	}
 	return (
-		<>
-			<Routes>
-				<Route path='/' element={<Home currentMode={currentMode}/>}/>
-				<Route path='projects' element={<Projects currentMode={currentMode}/>}/>
-			</Routes>
+		<ThemeProvider theme={currentMode === 'black' ? lightMode : darkMode}>
+			<>
+				<GlobalStyles/>
+				<Routes>
+					<Route path='/' element={<Home currentMode={currentMode}/>}/>
+					<Route path='projects' element={<Projects currentMode={currentMode}/>}/>
+					<Route path='contact' element={<Contact currentMode={currentMode}/>}/>
+				</Routes>
 
 			
 
-			<div className='mode'>
+				<div className='mode'>
 
-				<input type='checkbox' className='light-box' style={modeBox}/>
-				<span className='light-text' >LIGHT</span>
+					<input value='light' type='checkbox' className='light-box' onChange={handleChange} style={modeBox}/>
+					<span className='light-text' style={{color:currentMode}}>LIGHT</span>
 
 
-				<input type='checkbox' className='dark-box' style={modeBox}/>
-				<span className='dark-text' >DARK</span>
+					<input value='dark' type='checkbox' className='dark-box' onChange={handleChange} style={modeBox}/>
+					<span className='dark-text' style={{color:currentMode}}>DARK</span>
 
-			</div>
+				</div>
 
-		</>
+			</>
+		</ThemeProvider>
 	)
 }
 
