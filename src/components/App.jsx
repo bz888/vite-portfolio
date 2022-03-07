@@ -12,6 +12,7 @@ import Projects from './Projects'
 function App() {
 	// const navigate = useNavigate()
 	const [currentMode, setCurrentMode] = useState('black')
+	const [checkedState, setCheckedState] = useState({light: true, dark: false})
 
 	const modeBox = {
 		borderColor: 'black',
@@ -19,11 +20,13 @@ function App() {
 	}
 
 	function handleChange (e) {
-		e.preventDefault()
+		// e.preventDefault()
 		const colorProfile = e.target.value
 		if (colorProfile === 'light') {
+			setCheckedState({light: true, dark: false})
 			setCurrentMode('black')
 		} else if (colorProfile === 'dark') {
+			setCheckedState({light: false, dark: true})
 			setCurrentMode('white')
 		} 
 	}
@@ -40,13 +43,18 @@ function App() {
 			
 
 				<div className='mode'>
+					<label className='checkbox-container' style={{color:currentMode}}>
+						<input checked={checkedState.light} value='light' type='radio' className='light-box' onChange={handleChange} style={modeBox}/>
+						<span className='checkmark' style={{borderColor: currentMode}}></span>
+						<span>LIGHT</span>
+						{/* <span className='light-text' style={{color:currentMode}}>LIGHT</span> */}
+					</label>
 
-					<input value='light' type='checkbox' className='light-box' onChange={handleChange} style={modeBox}/>
-					<span className='light-text' style={{color:currentMode}}>LIGHT</span>
-
-
-					<input value='dark' type='checkbox' className='dark-box' onChange={handleChange} style={modeBox}/>
-					<span className='dark-text' style={{color:currentMode}}>DARK</span>
+					<label className='checkbox-container' style={{color:currentMode}}>
+						<input checked={checkedState.dark} value='dark' type='radio' className='dark-box' onChange={handleChange} style={modeBox}/>
+						<span className='checkmark' style={{borderColor: currentMode}}></span>
+						<span>DARK</span>
+					</label>
 
 				</div>
 

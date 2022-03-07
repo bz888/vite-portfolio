@@ -200,28 +200,43 @@
 
 .mode {
   display: flex;
+  width: 220px;
+  height: 26px;
   position: absolute;
   bottom: 3vh;
+  justify-content: space-between;
   align-items: center;
   right: 14vw;
 }
-.mode span {
-  display: inline-block;
-  font-size: 2rem;
-  margin-left: 5px;
+
+.checkbox-container {
+  position: relative;
+  cursor: pointer;
+  font-size: 1.5rem;
 }
 
-.mode input{
-  margin-left: 15px;
-  width: 24px;
-  height: 24px;
-  /* border-color: black; */
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+
+.checkmark {
+  display: inline-block;
+  margin-right: 10px;
+  top: 0;
+  left: 0;
+  height: 16.5px;
+  width: 16.5px;
   border-style: solid;
   border-width: 1px;
 }
-
-#body-div {
-  height: 100%;
-  width: 100%;
-  background-color: red !important;
+.light-box:checked ~ .checkmark {
+  background-color: black;
+}
+.dark-box:checked ~ .checkmark {
+  background-color: white;
 }
