@@ -62,8 +62,8 @@ export default function Projects ({ currentMode }) {
 	}
 	const lineStyle2 = {
 		display: 'block',
-		width: '22rem',
-		height: '2px',
+		// width: '22rem',
+		// height: '2px',
 		backgroundColor: currentMode
 	}
 	const nameStyle = {

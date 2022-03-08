@@ -8,8 +8,8 @@ export default function Contact ({currentMode}) {
 
 	const lineStyle1 = {
 		display: 'block',
-		width: '2px',
-		height: '45rem',
+		// width: '2px',
+		// height: '45rem',
 		backgroundColor: currentMode
 	}
   
@@ -26,8 +26,8 @@ export default function Contact ({currentMode}) {
 
 	const lineStyle2 = {
 		display: 'block',
-		width: '22rem',
-		height: '2px',
+		// width: '22rem',
+		// height: '2px',
 		backgroundColor: currentMode
 	}
 

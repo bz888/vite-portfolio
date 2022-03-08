@@ -192,7 +192,7 @@
   text-align: left;
   position: absolute;
   top: 35vh;
-  left: 20vw;
+  left: 22.5vw;
   width: 450px;
   height: 600px;
   font-size: 1.2rem;
@@ -240,7 +240,7 @@
   bottom: 3vh;
   justify-content: space-between;
   align-items: center;
-  right: 10vw;
+  right: 6.5vw;
 }
 
 .checkbox-container {
@@ -273,4 +273,148 @@
 }
 .dark-box:checked ~ .checkmark {
   background-color: white;
+}
+
+
+
+/* anything below is currently not okay */
+@media (min-width: 1366px) and (max-width: 1536px){
+  /* home page */
+  .line-1 {
+    width: 49rem;
+  }
+  .line-2 {
+    height: 16rem;
+  }
+  .line-3 {
+    height: 25rem;
+  }
+  .home-info {
+    width: 750px;
+    left: 130px;
+  }
+  .home-info p {
+    font-size: 1.1rem;
+  }
+  .nav-list li {
+    font-size: 1.7rem;
+  }
+  .name-div {
+    height: 110px;
+    width: 310px;
+    top: 30vh
+  }
+  .header-name1 h1 {
+    font-size: 3.7rem;
+  }
+  .header-name2 h1 {
+    font-size: 3.7rem;
+  }
+  .header-div {
+    top: 30vh;
+    left: 9.5vw;
+    width: 663px;
+    height: 120px;
+  }
+  .header-text1 {
+    font-size: 4rem;
+    font-weight: normal;
+  }
+  .header-text2 {
+    font-size: 2.7rem;
+    font-weight: normal;
+  }
+
+  /* project page */
+  .line-p-1 {
+    height: 31rem;
+  }
+  .line-p-2 {
+    width: 16rem;
+  }
+  .name-p-div {
+    width: 465px;
+  }
+  .p-name-header {
+    font-size: 2rem;
+  }
+  .project-des {
+    width: 200px;
+  }
+  
+  /* theme */
+  .mode {
+    right: 2vw;
+  }
+}
+
+@media (min-width: 1536px) and (max-width:1910px) {
+  .line-1 {
+    width: 57rem;
+  }
+  .line-2 {
+    height: 20.7rem;
+  }
+  .line-3 {
+    height: 28rem;
+  }
+  .home-info {
+    width: 750px;
+    left: 135px;
+  }
+  .home-info p {
+    font-size: 1.2rem;
+  }
+  .nav-list li {
+    font-size: 2rem;
+  }
+  .name-div {
+    height: 110px;
+    width: 345px;
+    top: 32vh
+  }
+  .header-name1 h1 {
+    font-size: 3.9rem;
+  }
+  .header-name2 h1 {
+    font-size: 3.9rem;
+  }
+  .header-div {
+    top: 34vh;
+    left: 8.5vw;
+    width: 720px;
+    height: 126px;
+  }
+  .header-text1 {
+    font-size: 4.5rem;
+    font-weight: normal;
+  }
+  .header-text2 {
+    font-size: 2.7rem;
+    font-weight: normal;
+  }
+
+  /* project page */
+  .line-p-1 {
+    height: 35rem;
+  }
+  .line-p-2 {
+    width: 17rem;
+  }
+  .name-p-div {
+    width: 500px;
+  }
+  .p-name-header {
+    font-size: 2rem;
+  }
+  .project-des {
+    width: 260px;
+  }
+  /* theme */
+  .mode {
+    right: 3vw;
+  }
+}
+@media (min-width: 1920px) {
+  
 }
