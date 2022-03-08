@@ -1,11 +1,10 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { useTheme } from '../context/ThemeContext'
 
 Contact.propTypes
 export default function Contact ({currentMode}) {
-	const navigate = useNavigate()
-
+	const { handleNav } = useTheme()
 
 	const lineStyle1 = {
 		display: 'block',
@@ -37,42 +36,26 @@ export default function Contact ({currentMode}) {
 		color: currentMode
 	}
 
-	function handleClick (e) {
-		console.log(e.target.id)
-		const id = e.target.id
-		switch(id){
-		case 'home':
-			navigate('/')
-			break
-		case 'projects':
-			navigate('/projects')
-			break
-		case 'contact':
-			navigate('/contact')
-			break
-		default:
-			break
-		}
-	}
 	return (
 		<>
     	<motion.div className='name-p-div'>
 				<motion.span
 					className='p-name-header'
-					whileInView={{x: [500, 0]}}
+					animate={{x: [500, 0]}}
 					style={nameStyle}
 				>BEN ZHAO</motion.span>
 				<motion.span 
 					className='line-p-2'
 					style={lineStyle2}
-					whileInView={lineAnim2}
+					animate={{x: [352, 0]}}
 				/>
 			</motion.div>
 
 			<motion.span 
 				className='line-p-1'
 				style={lineStyle1}
-				whileInView={lineAnim1}
+				animate={{y: [720, 0]}}
+				transition={{duration: 1.2, ease: 'easeOut'}}
 			/>
 
 			<motion.div className='contact-div'
@@ -88,27 +71,30 @@ export default function Contact ({currentMode}) {
 				<ul className='nav-list'
 					style={{color:currentMode}} >
 					<motion.li
-						whileInView={{
+						transition={{duration: 0.7}}
+						animate={{
 							x:  -30 ,
 							y: [200, -185],
 							rotate: -90}}
 						id='home'
-						onClick={handleClick}
+						onClick={(e)=> handleNav(e)}
 					>HOME</motion.li>
 
 					<motion.li
-						whileInView={{
+						transition={{duration: 0.7}}
+						animate={{
 							x: -30 , 
 							y: [100, 50],
 							rotate: -90}}
 						id='projects'
-						onClick={handleClick}
+						onClick={(e)=> handleNav(e)}
 					>PROJECTS</motion.li>
 
 					<motion.li
-						whileInView={{ y:[0, -570]}}
+						transition={{duration: 0.6}}
+						animate={{ y:[0, -565]}}
 						id='contact'
-						onClick={handleClick}
+						onClick={(e)=> handleNav(e)}
 					>CONTACT</motion.li>
 				</ul>
 			</motion.div>

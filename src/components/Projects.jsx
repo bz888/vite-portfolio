@@ -1,37 +1,66 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { useNavigate } from 'react-router-dom'
+import { useTheme } from '../context/ThemeContext'
 
 Projects.propTypes
 export default function Projects ({ currentMode }) {
-	const navigate = useNavigate()
+	const { handleNav } = useTheme()
+	const [hoverToggle, setHoverToggle] = useState(false)
+	const [description, setDescription] = useState('')
 
-
-	const lineAnim1 = {
-		duration: 2,
-		y: [720, 0],
-		// ease: 'easeOut'
+	function handleHover(e){
+		console.log(e.target.id)
+		setHoverToggle(!hoverToggle)
+		switch(e.target.id){
+		case 'Two Truths One Lie':
+			setDescription('Two Truths and a Lie is a project comissioned by artist Darryl Chin. The work serves as a response to the current atmosphere of misinformation and distrust. \n The project uses Text-Cortex (ai-text generator API) to proccess user input, and the data is then rendered into the format of News page.')
+			break
+		case 'Afternewmedia':
+			setDescription('After new media is commissioned by artist William Linscott. The application uses youtube APIs to render videos that has never been seen before (0 views), however, the title parameters are set to "DSC, MOV, IMG" in order to narrow down search attempts and minimise.')
+			break
+		case 'Brainf*ck interpreter':
+			setDescription('A basic interpreter for the programming language BrainFuck, it is very amatuer interpeter and cannot handle powerful brainfuck codes. ')
+			break
+		case 'SideScroller':
+			setDescription('A sidescroll arcade-styled game built with phaser.js. This was the graduation project I had with EDA. The project consisted of 4 members, agile workflow and a total of 420hours within 7 days.')
+			break
+		case 'Somezine':
+			setDescription('This was my graduation project for BFA. The project serves as a response to the restrictions imposed by the pandemic. The work mainly consists of multiple 3D renderings and video works as an expression of virtual freedom juxaposing the physical limitations the world faced. \n Tech stack: Unity, Maya, Blender, basic HTML/CSS and multiple Adobe suites.')
+			break
+		default:
+			setDescription('')
+			break
+			
+		}
 	}
-	const lineAnim2 = {
-		// duration: 2,
-		x: [352, 0],
-		// ease: 'easeOut'
+	const descriptionMenuAnimate = {
+		start: {
+			display: 'block',
+			opacity: 1,
+			transition: {
+				duration: 0.5,
+				ease: 'easeOut'
+			}
+		},
+		end: {
+			opacity: 0,
+			transition: {
+				duration: 0.5,
+				ease: 'easeIn'
+			},
+			transitionEnd:{
+				display: 'none'
+			}
+		}
 	}
-
 
 	const lineStyle1 = {
 		display: 'block',
-		width: '2px',
-		height: '45rem',
+		// width: '2px',
+		// height: '45rem',
 		backgroundColor: currentMode
 	}
 	const lineStyle2 = {
-		display: 'block',
-		width: '22rem',
-		height: '2px',
-		backgroundColor: currentMode
-	}
-	const lineStyle3 = {
 		display: 'block',
 		width: '22rem',
 		height: '2px',
@@ -41,92 +70,101 @@ export default function Projects ({ currentMode }) {
 		display: 'inline-block',
 		color: currentMode
 	}
-	function handleClick (e) {
-		console.log(e.target.id)
-		const id = e.target.id
-		switch(id){
-		case 'home':
-			navigate('/')
-			break
-		case 'projects':
-			navigate('/projects')
-			break
-		case 'contact':
-			navigate('/contact')
-			break
-		default:
-			break
-		}
-	}
 
 	return (
 		<>
     	<motion.span 
 				className='line-p-1'
 				style={lineStyle1}
-				whileInView={lineAnim1}
+				animate={{y: [720, 0]}}
+				transition={{duration: 1.2, ease: 'easeOut' }}
 			/>
-			{/* <motion.span 
-				className='line-p-3'
-				style={lineStyle3}
-				whileInView={lineAnim2}
-			/> */}
 
 			<motion.div className='name-p-div'>
 				<motion.span
 					className='p-name-header'
-					whileInView={{x: [500, 0]}}
+					animate={{x: [500, 0]}}
 					style={nameStyle}
 				>BEN ZHAO</motion.span>
 				<motion.span 
 					className='line-p-2'
 					style={lineStyle2}
-					whileInView={lineAnim2}
+					animate={{x: [352, 0]}}
 				/>
+			</motion.div>
+
+			<motion.div 
+				initial='end'
+				animate={hoverToggle ? 'start' : 'end'}
+				variants={descriptionMenuAnimate}
+				className='project-des'>
+				<p style={{color:currentMode}}>{description}</p>
 			</motion.div>
 
 			<motion.div
 				className='projects-div'
 			>
-				<motion.div className='project-list'>
-					<motion.h2 style={{color:currentMode}} className='project-catalogue'
-						whileInView={{opacity: [0, 1]}}
-					>■ Projects &#40;web apps&#41;</motion.h2>
-					<motion.a className='project-item'
-						href=''
-						target='_blank' rel="noreferrer"
-						whileInView={{x: [200, 0]}}>
-						<div style={{color:currentMode}} className='project-title'>Two Truths One Lie</div>
-						<div style={{color:currentMode}} className='project-info'>2022/Commission</div>
-					</motion.a>
-					<motion.a className='project-item'
-						href='https://afternewmedia.herokuapp.com/'
-						target='_blank' rel="noreferrer"
-						whileInView={{x: [300, 0]}}>
-						<div style={{color:currentMode}} className='project-title'>Afternewmedia</div>
-						<div style={{color:currentMode}} className='project-info'>2021/Commission</div>
-					</motion.a>
-					<motion.a className='project-item'
-						href=''
-						whileInView={{x: [400, 0]}}>
-						<div style={{color:currentMode}} className='project-title'>Brainf*ck interpreter</div>
-						<div style={{color:currentMode}} className='project-info'>2021/Personal</div>
-					</motion.a>
-					<motion.a className='project-item'
-						href='https://git-gud-eda-test.herokuapp.com/'
-						target='_blank' rel="noreferrer"
-						whileInView={{x: [500, 0]}}>
-						<div style={{color:currentMode}} className='project-title'>SideScroller</div>
-						<div style={{color:currentMode}} className='project-info'>2021/Course work</div>
-					</motion.a>
-					<motion.a className='project-item'
-						href='https://bz888.github.io/portfolio-v1/'
-						target='_blank' rel="noreferrer"
-						whileInView={{x: [500, 0]}}>
-						<div style={{color:currentMode}} className='project-title'>Somezine</div>
-						<div style={{color:currentMode}} className='project-info'>2020/Graduation Project</div>
-					</motion.a>
-				</motion.div>
+				{/* <motion.div className='project-list'> */}
+				<motion.h2 style={{color:currentMode}} className='project-catalogue'
+					animate={{opacity: [0, 1]}}
+				>■ Projects &#40;web apps&#41;</motion.h2>
+		
+				<motion.a className='project-item'
+					id='Two Truths One Lie'
+					onHoverEnd={handleHover}
+					onHoverStart={handleHover}
+					whileHover={{opacity: 0.5}}
+					href=''
+					target='_blank' rel="noreferrer"
+					animate={{x: [200, 0]}}>
+					<div style={{color:currentMode}} className='project-title'>Two Truths One Lie</div>
+					<div style={{color:currentMode}} className='project-info'>2022/Commission</div>
+				</motion.a>
+
+				<motion.a className='project-item'
+					id='Afternewmedia'
+					onHoverEnd={handleHover}
+					onHoverStart={handleHover}
+					whileHover={{opacity: 0.5}}
+					href='https://afternewmedia.herokuapp.com/'
+					target='_blank' rel="noreferrer"
+					animate={{x: [300, 0]}}>
+					<div style={{color:currentMode}} className='project-title'>Afternewmedia</div>
+					<div style={{color:currentMode}} className='project-info'>2021/Commission</div>
+				</motion.a>
+				<motion.a className='project-item'
+					id='Brainf*ck interpreter'
+					onHoverEnd={handleHover}
+					onHoverStart={handleHover}
+					whileHover={{opacity: 0.5}}
+					href=''
+					animate={{x: [400, 0]}}>
+					<div style={{color:currentMode}} className='project-title'>Brainf*ck interpreter</div>
+					<div style={{color:currentMode}} className='project-info'>2021/Personal</div>
+				</motion.a>
+				<motion.a className='project-item'
+					id='SideScroller'
+					onHoverEnd={handleHover}
+					onHoverStart={handleHover}
+					whileHover={{opacity: 0.5}}
+					href='https://git-gud-eda-test.herokuapp.com/'
+					target='_blank' rel="noreferrer"
+					animate={{x: [500, 0]}}>
+					<div style={{color:currentMode}} className='project-title'>SideScroller</div>
+					<div style={{color:currentMode}} className='project-info'>2021/Course work</div>
+				</motion.a>
+				<motion.a className='project-item'
+					id='Somezine'
+					onHoverEnd={handleHover}
+					onHoverStart={handleHover}
+					whileHover={{opacity: 0.5}}
+					href='https://bz888.github.io/portfolio-v1/'
+					target='_blank' rel="noreferrer"
+					animate={{x: [500, 0]}}>
+					<div style={{color:currentMode}} className='project-title'>Somezine</div>
+					<div style={{color:currentMode}} className='project-info'>2020/Graduation Project</div>
+				</motion.a>
+				{/* </motion.div> */}
 
 			</motion.div>
 
@@ -134,30 +172,30 @@ export default function Projects ({ currentMode }) {
 				<ul className='nav-list'
 					style={{color:currentMode}}>
 					<motion.li
-						
-						whileInView={{
+						transition={{duration: 0.6}}
+						animate={{
 							x:  -30 ,
 							y: [200, -170],
 							rotate: -90}}
 						id='home'
-						onClick={handleClick}
+						onClick={(e)=> handleNav(e)}
 					>HOME</motion.li>
 
 					<motion.li
-
-						whileInView={{ y:[0, -480]}}
+						transition={{duration: 0.7}}
+						animate={{ y:[0, -480]}}
 						id='projects'
-						onClick={handleClick}
+						onClick={(e)=> handleNav(e)}
 					>PROJECTS</motion.li>
 
 					<motion.li
-
-						whileInView={{
+						transition={{duration: 0.6}}
+						animate={{
 							x: -30 , 
 							y: [200, 0],
 							rotate: -90}}
 						id='contact'
-						onClick={handleClick}
+						onClick={(e)=> handleNav(e)}
 					>CONTACT</motion.li>
 				</ul>
 			</motion.div>

@@ -1,6 +1,8 @@
 /* lines home page */
 .line-1 {
   position: absolute;
+  width: 70rem;
+  height: 2px;
   left: 0;
   top: 53vh;
 }
@@ -9,12 +11,30 @@
   position: absolute;
   top: 0;
   right: 44.5vw;
+  width: 2px;
+  height: 24rem;
 }
 
 .line-3 {
   position: absolute;
   bottom: 0;
   right: 30vw;
+  width: 2px;
+  height: 36rem;
+}
+
+/* bio */
+.home-info {
+  width: 850px;
+  height:50px;
+  position: absolute;
+  bottom: 36vh;
+  left: 155px;
+}
+.home-info p {
+  margin: 0;
+  font-weight: normal;
+  font-size: 1.3rem;
 }
 
 /* nav bar */
@@ -76,12 +96,12 @@
 .header-div {
   position: absolute;
   display: flex;
-  width: 790px;
+  width: 800px;
   height: 140px;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   top: 33vh;
-  left: 14vw;
+  left: 13.5vw;
 }
 .header-text-div1 {
   width: auto;
@@ -104,19 +124,19 @@
 
 /* line project page */
 .line-p-1 {
+  width: 2px;
+  height: 45rem;
   position: absolute;
   left: 13vw;
   bottom: 0;
 }
 .line-p-2 {
+  width: 22rem;
+  height: 2px;
   position: absolute;
   right: 0;
 }
-.line-p-3 {
-  position: absolute;
-  right: 0;
-  top: 40vh;
-}
+
 
 /* BEN ZHAO project name header */
 .name-p-div {
@@ -138,7 +158,7 @@
 
 /* projects-div */
 .projects-div {
-  width: 600px;
+  /* width: 1020px; */
   height: 600px;
   position: absolute;
   right: 22.5vw;
@@ -166,6 +186,20 @@
 }
 .project-title {
   font-size: 3rem;
+}
+.project-des {
+  display: block;
+  text-align: left;
+  position: absolute;
+  top: 35vh;
+  left: 20vw;
+  width: 450px;
+  height: 600px;
+  font-size: 1.2rem;
+}
+.project-des p {
+  margin: 0;
+  line-height: 25px;
 }
 
 /* contact page  */
@@ -206,7 +240,7 @@
   bottom: 3vh;
   justify-content: space-between;
   align-items: center;
-  right: 14vw;
+  right: 10vw;
 }
 
 .checkbox-container {

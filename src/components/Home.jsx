@@ -1,27 +1,29 @@
 
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import React , { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useTheme } from '../context/ThemeContext'
+// import { useNavigate } from 'react-router-dom'
 import '../css/app.css'
 import { RandomGen } from './RandomGen'
 
 Home.propTypes
 export default function Home ({ currentMode }) {
-
-	const navigate = useNavigate()
+	const bio = 'I am young developer with a passion for tech and a mission to present the endless possibilites of web development, I am always in pursuit of new knowledge through experiments and projects.'
+	const { handleNav } = useTheme()
 	const [randomChar, setRandomChar] = useState('FULL-STACK')
+	const [randomParagraph, setRandomParagraph] = useState(bio)
 	const [repeatVal, setRepeatVal] = useState(0)
 
-	// this is creating a memory leak as setRepeatVal can not be reset to 0
 	useEffect(()=>{
-		if (repeatVal < 20) {
+		if (repeatVal < 50) {
 			loop()
+			setRandomParagraph(()=> RandomGen(bio))
 		}
-		if (repeatVal >= 20) {
+		if (repeatVal >= 50) {
 			setRandomChar(()=> 'FULL-STACK')
-			return () => {setRepeatVal(()=> 20)}
+			setRandomParagraph(()=> bio)
+			return () => {setRepeatVal(()=> 0)}
 		}
-		// return () => {setRepeatVal(()=> 0)}
 	},[repeatVal])
 
 	function loop () {
@@ -29,31 +31,28 @@ export default function Home ({ currentMode }) {
 		setTimeout(()=>setRepeatVal(repeatVal + 1), 60)
 	}
 
+
+
 	const lineStyle1 = {
 		display: 'block',
-		width: '70rem',
-		height: '2px',
+		// width: '70rem',
+		// height: '2px',
 		backgroundColor: currentMode
 	}
 	
 	const lineStyle2 = {
 		display: 'block',
-		width: '2px',
-		height: '24rem',
+		// width: '2px',
+		// height: '24rem',
 		backgroundColor: currentMode
 	}
 	const lineStyle3 = {
 		display: 'block',
-		width: '2px',
-		height: '36rem',
+		// width: '2px',
+		// height: '36rem',
 		backgroundColor: currentMode
 	}
 
-	const lineAnim1 = {
-		x: [-1120, 0],
-		duration: 0.1,
-		// ease: 'easeOut'
-	}
 	const lineAnim2 = {
 		duration: 2,
 		y: [-384, 0],
@@ -64,27 +63,15 @@ export default function Home ({ currentMode }) {
 		y: [576, 0],
 		// ease: 'easeOut'
 	}
-
-	 function handleClick (e) {
-		console.log(e.target.id)
-		const id = e.target.id
-		switch(id){
-		case 'home':
-			// setRepeatVal(()=> 0)
-			navigate('/')
-			break
-		case 'projects':
-			setRepeatVal(()=> 0)
-			navigate('/projects')
-			break
-		case 'contact':
-			setRepeatVal(()=> 0)
-			navigate('/contact')
-			break
-		default:
-			break
+	const lineVariant1 = {
+		start: {
+			x: [-1120, 0]
+		},
+		end: {
+			x: [0, -1120]
 		}
 	}
+
 	return (
 		<>
 			<motion.div className='header-div'>
@@ -95,7 +82,7 @@ export default function Home ({ currentMode }) {
 				</div>
 				<div className='header-text-div2'>
 					<motion.h1 className='header-text2'
-						whileInView={{y: [-37,0]}}
+						animate={{y: [-37,0]}}
 						style={{color:currentMode}}
 					>DEVELOPER</motion.h1>
 				</div>
@@ -103,40 +90,49 @@ export default function Home ({ currentMode }) {
 
 			<motion.span 
 				className='line-1'
+				variants={lineVariant1}
 				style={lineStyle1}
-				whileInView={lineAnim1}
+				animate='start'
+				transition={{duration: 1.2}}
 			/>
+
 			<motion.span 
 				className='line-2'
 				style={lineStyle2}
-				whileInView={lineAnim2}
+				animate={lineAnim2}
 			/>
 			<motion.span 
 				className='line-3'
 				style={lineStyle3}
-				whileInView={lineAnim3}
+				animate={lineAnim3}
 			/>
+			<motion.div className='home-info'
+				transition={{duration: 1.2}}
+				animate={{opacity: [0, 1]}}>
+				<p style={{color:currentMode}}>{randomParagraph}</p>	
+			</motion.div>
 
 			<motion.div className='nav'>
 				<ul className='nav-list'>
-					<motion.li
-						whileInView={{x: [ -50 , 0 ]}}
+					{/* <motion.li
+						animate={{x: [ -150 , 0 ]}}
+						transition={{duration: 1}}
 						id='home'
-						onClick={handleClick}
+						onClick={(e)=> handleNav(e)}
 						style={{color:currentMode}}
-					>HOME</motion.li>
+					>HOME</motion.li> */}
 
 					<motion.li
-						whileInView={{x: [ -150 , 0 ]}}
+						animate={{x: [ -150 , 0 ]}}
 						id='projects'
-						onClick={handleClick}
+						onClick={(e)=> handleNav(e)}
 						style={{color:currentMode}}
 					>PROJECTS</motion.li>
 
 					<motion.li
-						whileInView={{x: [ -200 , 0 ]}}
+						animate={{x: [ -200 , 0 ]}}
 						id='contact'
-						onClick={handleClick}
+						onClick={(e)=> handleNav(e)}
 						style={{color:currentMode}}
 					>CONTACT</motion.li>
 				</ul>
@@ -146,18 +142,19 @@ export default function Home ({ currentMode }) {
 				<motion.div className='header-name1'>
 					<motion.h1 
 						className='header-name-text1'
-						whileInView={{y: [100,0]}}
+						animate={{y: [100,0]}}
 						style={{color:currentMode}}
 					>BEN</motion.h1>
 				</motion.div>
 				<motion.div className='header-name2'>
 					<motion.h1 
 						className='header-name-text2'
-						whileInView={{y: [-50,0]}}
+						animate={{y: [-50,0]}}
 						style={{color:currentMode}}
 					>ZHAO</motion.h1>
 				</motion.div>
 			</div>
+		
 		</>
 	)
 }

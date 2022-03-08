@@ -3,6 +3,6 @@ export const lightMode = {
 	background: '#FFFFFF'
 }
 export const darkMode = {
-	body: '#000000',
-	background: '#000000'
+	body: '#0F0F0F',
+	background: '#0F0F0F'
 }
