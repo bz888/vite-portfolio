@@ -275,9 +275,176 @@
   background-color: white;
 }
 
+/* need query for 820 and lower */
+/* need media query between 820 and 1366 */
 
+@media (min-width: 375px) and (max-width: 819px) {
+  .header-div {
+    top: 1vh;
+    left: 8.5vw;
+    width: 332px;
+    height: 91px;
+    flex-direction: column;
+  }
+  .header-text-div1{
+    height: 55px;
+  }
+  .line-1 {
+    width: 80vw;
+    top: 39vh;
+  }
+  .line-2 {
+    right: 30vw;
+    top: 20vh;
+    height: 5vh;
+  }
+  .line-3 {
+    height: 12rem;
+    right: 40vw;
+  }
+  .name-div {
+    height: 110px;
+    width: 230px;
+    top: 20vh;
+    right: 15.5vw;
+  }
+  .header-name1 h1 {
+    font-size: 2.5rem;
+    font-weight: normal;
+  }
+  
+  .header-name2 h1 {
+    font-size: 2.5rem;
+    font-weight: normal;
+  }
+  .home-info {
+    width: 300px;
+    bottom: 50vh;
+    left: 10vw;
+  }
+  .line-p-1 {
+    display: none;
+  }
+  .projects-div {
+    height: 68vh;
+    top: 15vh;
+    right: 10vw;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none; 
+    
+  }
+  .projects-div::-webkit-scrollbar{
+    display: none;
+  }
+  .project-item {
+    flex-direction: column-reverse;
+    flex-wrap: wrap-reverse;
+  }
+  .p-name-header {
+    display: none;
+  }
+  .project-title {
+    font-size: 1.8rem;
+  }
+  .nav {
+    left: 0;
+    bottom: 8vh;
+  }
+  .nav-list li{
+    margin-left: 0;
+    font-size: 2rem;
+  }
+  .header-text1 {
+    font-size: 3rem;
+    font-weight: normal;
+  }
+  .header-text2 {
+    font-size: 2rem;
+    font-weight: normal;
+  }
+  .mode {
+    right: 11.5vw;
+  }
+}
+
+@media (min-width: 820px) and (max-width: 1365px) {
+  .line-1 {
+    width: 75vw;
+    top: 48vh;
+  }
+  .line-2 {
+    right: 35vw;
+    top: 18vh;
+    height: 13vh;
+  }
+  .line-3 {
+    right: 50vw;
+    height: 30vh;
+    bottom: 0;
+  }
+  .header-div {
+    left: 13vw;
+    top: 0;
+    height: 160px;
+    width: 565px;
+    flex-direction: column;
+  }
+  .name-div {
+    top: 30vh;
+    width: 350px;
+  }
+  .header-name1 h1 {
+    font-size: 4rem;
+    font-weight: normal;
+  }
+  .header-name2 h1 {
+    font-size: 4rem;
+    font-weight: normal;
+  }
+  .home-info {
+    width: 545px;
+    bottom: 43vh;
+    left: 110px;
+  }
+  .nav {
+    bottom: 21vh;
+  }
+  .line-p-1 {
+    height: 24rem;
+    left: 12.5vw;
+  }
+  .line-p-2 {
+    /* top: 6.3vh; */
+    width: 29rem;
+  }
+  .projects-div {
+    height: 60vh;
+    top: 15vh;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none; 
+  }
+  .projects-div::-webkit-scrollbar{
+    display: none;
+  }
+  .project-item {
+    flex-direction: column-reverse;
+    flex-wrap: wrap-reverse;
+  }
+  .p-name-header {
+    display: none;
+  }
+
+  .mode {
+    right: 15.5vw;
+    bottom: 10vh;
+  }
+
+}
 
 /* anything below is currently not okay */
+/* between 1366px and 1535px */
 @media (min-width: 1366px) and (max-width: 1535px){
   /* home page */
   .line-1 {
@@ -416,7 +583,4 @@
   .mode {
     right: 3vw;
   }
-}
-@media (min-width: 1920px) {
-  
 }

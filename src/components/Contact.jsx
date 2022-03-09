@@ -1,43 +1,19 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { useTheme } from '../context/ThemeContext'
-import { useIsMedium, useIsSmall } from './useMediaQuery'
+import {  useIsMedium, useIsSmall, useIsiPad, useIsMobile} from './useMediaQuery'
 
 Contact.propTypes
 export default function Contact ({currentMode}) {
 	const { handleNav } = useTheme()
 	const isMedium = useIsMedium()
 	const isSmall = useIsSmall()
-
+	const isPad = useIsiPad()
+	const isMobile = useIsMobile()
 	const lineStyle1 = {
-		display: 'block',
-		// width: '2px',
-		// height: '45rem',
 		backgroundColor: currentMode
 	}
   
-	const lineAnim1 = {
-		duration: 2,
-		y: [720, 0],
-		// ease: 'easeOut'
-	}
-	const lineAnim2 = {
-		// duration: 2,
-		x: [352, 0],
-		// ease: 'easeOut'
-	}
-
-	const lineStyle2 = {
-		display: 'block',
-		// width: '22rem',
-		// height: '2px',
-		backgroundColor: currentMode
-	}
-
-	const nameStyle = {
-		display: 'inline-block',
-		color: currentMode
-	}
 
 	return (
 		<>
@@ -45,11 +21,11 @@ export default function Contact ({currentMode}) {
 				<motion.span
 					className='p-name-header'
 					animate={{x: [500, 0]}}
-					style={nameStyle}
+					style={{color: currentMode}}
 				>BEN ZHAO</motion.span>
 				<motion.span 
 					className='line-p-2'
-					style={lineStyle2}
+					style={{backgroundColor: currentMode}}
 					animate={{x: [352, 0]}}
 				/>
 			</motion.div>
@@ -79,10 +55,18 @@ export default function Contact ({currentMode}) {
 							{x:  -30 ,
 								y: [200, -135],
 								rotate: -90} 
-							: {
-								x:  -30 ,
-								y: [200, -185],
-								rotate: -90}
+							: isPad ? 	
+								{x: -100 ,
+									y: [200, -400],
+									rotate: -90}
+								:isMobile ? 
+									{x: -80 ,
+										y: [0, -250],
+										rotate: -90}
+									:{
+										x:  -30 ,
+										y: [200, -185],
+										rotate: -90}
 						}
 						id='home'
 						onClick={(e)=> handleNav(e)}
@@ -90,17 +74,25 @@ export default function Contact ({currentMode}) {
 
 					<motion.li
 						transition={{duration: 0.7}}
-						animate={{
-							x: -30 , 
-							y: [100, 50],
-							rotate: -90}}
+						animate={isPad ? 
+							{ x: -100 , 
+								y: [200, -160],
+								rotate: -90}
+							:isMobile ?
+								{	x: -80 , 
+									y: [0, -100],
+									rotate: -90}
+								: {
+									x: -30 , 
+									y: [100, 50],
+									rotate: -90}}
 						id='projects'
 						onClick={(e)=> handleNav(e)}
 					>PROJECTS</motion.li>
 
 					<motion.li
 						transition={{duration: 0.7}}
-						animate={isSmall ? {y: [0, -380]} : isMedium ? {y: [0, -420]} : { y:[0, -565]}}
+						animate={isSmall ? {y: [0, -380]} : isMedium ? {y: [0, -420]} : isPad ? {y: -753, x: -20} : isMobile ? {y: '-78vh'} : { y:[0, -565]}}
 						id='contact'
 						onClick={(e)=> handleNav(e)}
 					>CONTACT</motion.li>

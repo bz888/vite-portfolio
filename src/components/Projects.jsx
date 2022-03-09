@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useTheme } from '../context/ThemeContext'
-import { useIsMedium, useIsSmall } from './useMediaQuery'
+import { useIsMedium, useIsSmall, useIsiPad, useIsMobile } from './useMediaQuery'
 
 Projects.propTypes
 export default function Projects ({ currentMode }) {
 	const { handleNav } = useTheme()
 	const isMedium = useIsMedium()
 	const isSmall = useIsSmall()
+	const isPad = useIsiPad()
+	const isMobile = useIsMobile()
 	const [hoverToggle, setHoverToggle] = useState(false)
 	const [description, setDescription] = useState('')
 
@@ -57,24 +59,12 @@ export default function Projects ({ currentMode }) {
 		}
 	}
 
-	const lineStyle1 = {
-		display: 'block',
-		backgroundColor: currentMode
-	}
-	const lineStyle2 = {
-		display: 'block',
-		backgroundColor: currentMode
-	}
-	const nameStyle = {
-		display: 'inline-block',
-		color: currentMode
-	}
 
 	return (
 		<>
     	<motion.span 
 				className='line-p-1'
-				style={lineStyle1}
+				style={{backgroundColor: currentMode}}
 				animate={{y: [720, 0]}}
 				transition={{duration: 1.2, ease: 'easeOut' }}
 			/>
@@ -83,11 +73,11 @@ export default function Projects ({ currentMode }) {
 				<motion.span
 					className='p-name-header'
 					animate={{x: [500, 0]}}
-					style={nameStyle}
+					style={{color: currentMode}}
 				>BEN ZHAO</motion.span>
 				<motion.span 
 					className='line-p-2'
-					style={lineStyle2}
+					style={{backgroundColor: currentMode}}
 					animate={{x: [352, 0]}}
 				/>
 			</motion.div>
@@ -173,13 +163,21 @@ export default function Projects ({ currentMode }) {
 					<motion.li
 						transition={{duration: 0.6}}
 						animate={isSmall ?  
-							{x:  -30 ,
+							{x: -30 ,
 								y: [200, -135],
 								rotate: -90} 
-							:{
-								x:  -30 ,
-								y: [200, -170],
-								rotate: -90}
+							: isPad ? 	
+								{x: -100 ,
+									y: [200, -400],
+									rotate: -90}
+								: isMobile ? 
+									{x: -80 ,
+										y: [0, -250],
+										rotate: -90} 
+									:{
+										x:  -30 ,
+										y: [200, -170],
+										rotate: -90}
 						}
 						id='home'
 						onClick={(e)=> handleNav(e)}
@@ -187,17 +185,24 @@ export default function Projects ({ currentMode }) {
 
 					<motion.li
 						transition={{duration: 0.7}}
-						animate={isSmall ? {y: [0, -315]} : isMedium ? {y:[0, -345]}: { y:[0, -480]}}
+						animate={isSmall ? {y: [0, -315]} : isMedium ? {y:[0, -345]}: isPad ? {y: -673, x: -20} : isMobile ? {y: '-70vh'} : { y:[0, -480]}}
 						id='projects'
 						onClick={(e)=> handleNav(e)}
 					>PROJECTS</motion.li>
 
 					<motion.li
 						transition={{duration: 0.6}}
-						animate={{
-							x: -30 , 
-							y: [200, 0],
-							rotate: -90}}
+						animate={isPad ? 
+							{ x: -100 , 
+								y: [200, -230],
+								rotate: -90}
+							: isMobile ? {
+								x: -80 , 
+								y: [0, -170],
+								rotate: -90} 
+								: {x: -30 , 
+									y: [200, 0],
+									rotate: -90}}
 						id='contact'
 						onClick={(e)=> handleNav(e)}
 					>CONTACT</motion.li>

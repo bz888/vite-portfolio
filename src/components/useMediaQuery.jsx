@@ -19,3 +19,5 @@ export function useMediaQuery(query) {
 }
 export const useIsSmall = () => useMediaQuery('(min-width: 1366px) and (max-width: 1535px)')
 export const useIsMedium = () => useMediaQuery('(min-width: 1536px) and (max-width:1910px)')
+export const useIsiPad = () => useMediaQuery('(min-width: 820px) and (max-width: 1365px)')
+export const useIsMobile = () => useMediaQuery('(min-width: 375px) and (max-width: 819px)')

@@ -4,5 +4,5 @@ export const lightMode = {
 }
 export const darkMode = {
 	body: '#0F0F0F',
-	background: '#0F0F0F'
+	background: '#0F0F0F',
 }

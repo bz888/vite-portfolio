@@ -11,17 +11,17 @@ export default function Home ({ currentMode }) {
 	const bio = 'I am young developer with a passion for tech and a mission to present the endless possibilites of web development, I am always in pursuit of new knowledge through experiments and projects.'
 	const { handleNav } = useTheme()
 	const [randomChar, setRandomChar] = useState('FULL-STACK')
-	const [randomParagraph, setRandomParagraph] = useState(bio)
+	// const [randomParagraph, setRandomParagraph] = useState(bio)
 	const [repeatVal, setRepeatVal] = useState(0)
 
 	useEffect(()=>{
-		if (repeatVal < 50) {
+		if (repeatVal < 20) {
 			loop()
-			setRandomParagraph(()=> RandomGen(bio))
+			// setRandomParagraph(()=> RandomGen(bio))
 		}
-		if (repeatVal >= 50) {
+		if (repeatVal >= 20) {
 			setRandomChar(()=> 'FULL-STACK')
-			setRandomParagraph(()=> bio)
+			// setRandomParagraph(()=> bio)
 			return () => {setRepeatVal(()=> 0)}
 		}
 	},[repeatVal])
@@ -109,7 +109,7 @@ export default function Home ({ currentMode }) {
 			<motion.div className='home-info'
 				transition={{duration: 1.2}}
 				animate={{opacity: [0, 1]}}>
-				<p style={{color:currentMode}}>{randomParagraph}</p>	
+				<p style={{color:currentMode}}>{bio}</p>	
 			</motion.div>
 
 			<motion.div className='nav'>
