@@ -187,7 +187,7 @@ export default function Projects ({ currentMode }) {
 
 					<motion.li
 						transition={{duration: 0.7}}
-						animate={isSmall ? {y: [0, -315]} : { y:[0, -480]}}
+						animate={isSmall ? {y: [0, -315]} : isMedium ? {y:[0, -345]}: { y:[0, -480]}}
 						id='projects'
 						onClick={(e)=> handleNav(e)}
 					>PROJECTS</motion.li>

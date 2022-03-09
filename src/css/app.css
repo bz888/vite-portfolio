@@ -278,16 +278,16 @@
 
 
 /* anything below is currently not okay */
-@media (min-width: 1366px) and (max-width: 1536px){
+@media (min-width: 1366px) and (max-width: 1535px){
   /* home page */
   .line-1 {
-    width: 49rem;
+    width: 52rem;
   }
   .line-2 {
-    height: 16rem;
+    height: 20rem;
   }
   .line-3 {
-    height: 25rem;
+    height: 30rem;
   }
   .home-info {
     width: 750px;
@@ -311,9 +311,9 @@
     font-size: 3.7rem;
   }
   .header-div {
-    top: 30vh;
+    top: 34vh;
     left: 9.5vw;
-    width: 663px;
+    width: 693px;
     height: 120px;
   }
   .header-text1 {
@@ -397,6 +397,7 @@
 
   /* project page */
   .line-p-1 {
+    left: 14vw;
     height: 35rem;
   }
   .line-p-2 {

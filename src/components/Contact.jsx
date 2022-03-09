@@ -100,7 +100,7 @@ export default function Contact ({currentMode}) {
 
 					<motion.li
 						transition={{duration: 0.7}}
-						animate={isSmall ? {y: [0, -380]} : { y:[0, -565]}}
+						animate={isSmall ? {y: [0, -380]} : isMedium ? {y: [0, -420]} : { y:[0, -565]}}
 						id='contact'
 						onClick={(e)=> handleNav(e)}
 					>CONTACT</motion.li>

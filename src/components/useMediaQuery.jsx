@@ -17,5 +17,5 @@ export function useMediaQuery(query) {
 
 	return matches
 }
-export const useIsSmall = () => useMediaQuery('(min-width: 1366px) and (max-width: 1536px)')
+export const useIsSmall = () => useMediaQuery('(min-width: 1366px) and (max-width: 1535px)')
 export const useIsMedium = () => useMediaQuery('(min-width: 1536px) and (max-width:1910px)')
