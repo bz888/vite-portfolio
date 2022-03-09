@@ -1,10 +1,13 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { useTheme } from '../context/ThemeContext'
+import { useIsMedium, useIsSmall } from './useMediaQuery'
 
 Contact.propTypes
 export default function Contact ({currentMode}) {
 	const { handleNav } = useTheme()
+	const isMedium = useIsMedium()
+	const isSmall = useIsSmall()
 
 	const lineStyle1 = {
 		display: 'block',
@@ -72,10 +75,15 @@ export default function Contact ({currentMode}) {
 					style={{color:currentMode}} >
 					<motion.li
 						transition={{duration: 0.7}}
-						animate={{
-							x:  -30 ,
-							y: [200, -185],
-							rotate: -90}}
+						animate={isSmall ?  
+							{x:  -30 ,
+								y: [200, -135],
+								rotate: -90} 
+							: {
+								x:  -30 ,
+								y: [200, -185],
+								rotate: -90}
+						}
 						id='home'
 						onClick={(e)=> handleNav(e)}
 					>HOME</motion.li>
@@ -91,8 +99,8 @@ export default function Contact ({currentMode}) {
 					>PROJECTS</motion.li>
 
 					<motion.li
-						transition={{duration: 0.6}}
-						animate={{ y:[0, -565]}}
+						transition={{duration: 0.7}}
+						animate={isSmall ? {y: [0, -380]} : { y:[0, -565]}}
 						id='contact'
 						onClick={(e)=> handleNav(e)}
 					>CONTACT</motion.li>

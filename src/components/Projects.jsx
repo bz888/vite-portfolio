@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useTheme } from '../context/ThemeContext'
+import { useIsMedium, useIsSmall } from './useMediaQuery'
 
 Projects.propTypes
 export default function Projects ({ currentMode }) {
 	const { handleNav } = useTheme()
+	const isMedium = useIsMedium()
+	const isSmall = useIsSmall()
 	const [hoverToggle, setHoverToggle] = useState(false)
 	const [description, setDescription] = useState('')
 
@@ -56,14 +59,10 @@ export default function Projects ({ currentMode }) {
 
 	const lineStyle1 = {
 		display: 'block',
-		// width: '2px',
-		// height: '45rem',
 		backgroundColor: currentMode
 	}
 	const lineStyle2 = {
 		display: 'block',
-		// width: '22rem',
-		// height: '2px',
 		backgroundColor: currentMode
 	}
 	const nameStyle = {
@@ -173,17 +172,22 @@ export default function Projects ({ currentMode }) {
 					style={{color:currentMode}}>
 					<motion.li
 						transition={{duration: 0.6}}
-						animate={{
-							x:  -30 ,
-							y: [200, -170],
-							rotate: -90}}
+						animate={isSmall ?  
+							{x:  -30 ,
+								y: [200, -135],
+								rotate: -90} 
+							:{
+								x:  -30 ,
+								y: [200, -170],
+								rotate: -90}
+						}
 						id='home'
 						onClick={(e)=> handleNav(e)}
 					>HOME</motion.li>
 
 					<motion.li
 						transition={{duration: 0.7}}
-						animate={{ y:[0, -480]}}
+						animate={isSmall ? {y: [0, -315]} : { y:[0, -480]}}
 						id='projects'
 						onClick={(e)=> handleNav(e)}
 					>PROJECTS</motion.li>
