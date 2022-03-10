@@ -14,7 +14,6 @@ export default function Projects ({ currentMode }) {
 	const [description, setDescription] = useState('')
 
 	function handleHover(e){
-		console.log(e.target.id)
 		setHoverToggle(!hoverToggle)
 		switch(e.target.id){
 		case 'Two Truths One Lie':
