@@ -1,8 +1,7 @@
 
-import { AnimatePresence, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import React , { useEffect, useState } from 'react'
 import { useTheme } from '../context/ThemeContext'
-// import { useNavigate } from 'react-router-dom'
 import '../css/app.css'
 import { RandomGen } from './RandomGen'
 
@@ -11,13 +10,11 @@ export default function Home ({ currentMode }) {
 	const bio = 'I am young developer with a passion for tech and a mission to present the endless possibilites of web development, I am always in pursuit of new knowledge through experiments and projects.'
 	const { handleNav } = useTheme()
 	const [randomChar, setRandomChar] = useState('FULL-STACK')
-	// const [randomParagraph, setRandomParagraph] = useState(bio)
 	const [repeatVal, setRepeatVal] = useState(0)
 
 	useEffect(()=>{
 		if (repeatVal < 20) {
 			loop()
-			// setRandomParagraph(()=> RandomGen(bio))
 		}
 		if (repeatVal >= 20) {
 			setRandomChar(()=> 'FULL-STACK')
@@ -35,34 +32,18 @@ export default function Home ({ currentMode }) {
 
 	const lineStyle1 = {
 		display: 'block',
-		// width: '70rem',
-		// height: '2px',
 		backgroundColor: currentMode
 	}
 	
 	const lineStyle2 = {
 		display: 'block',
-		// width: '2px',
-		// height: '24rem',
 		backgroundColor: currentMode
 	}
 	const lineStyle3 = {
 		display: 'block',
-		// width: '2px',
-		// height: '36rem',
 		backgroundColor: currentMode
 	}
 
-	const lineAnim2 = {
-		duration: 2,
-		y: [-384, 0],
-		// ease: 'easeOut'
-	}
-	const lineAnim3 = {
-		duration: 2,
-		y: [576, 0],
-		// ease: 'easeOut'
-	}
 	const lineVariant1 = {
 		start: {
 			x: [-1120, 0]
@@ -99,12 +80,12 @@ export default function Home ({ currentMode }) {
 			<motion.span 
 				className='line-2'
 				style={lineStyle2}
-				animate={lineAnim2}
+				animate={{y: [-384, 0]}}
 			/>
 			<motion.span 
 				className='line-3'
 				style={lineStyle3}
-				animate={lineAnim3}
+				animate={{y: [576, 0]}}
 			/>
 			<motion.div className='home-info'
 				transition={{duration: 1.2}}

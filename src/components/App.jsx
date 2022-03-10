@@ -11,13 +11,6 @@ import Projects from './Projects'
 import { useTheme } from '../context/ThemeContext'
 
 function App() {
-	//UseContext for setMode
-	// Change animations into animate and variant, switch from whileinview
-	// Hover on projects, show project description
-	// design mobile layout
-	// media queries
-
-	// const [currentMode, setCurrentMode] = useState('black')
 
 	const {currentMode, setCurrentMode, setCheckedState, checkedState} = useTheme()
 	const modeBox = {
@@ -26,7 +19,6 @@ function App() {
 	}
 
 	function handleChange (e) {
-		// e.preventDefault()
 		const colorProfile = e.target.value
 		if (colorProfile === 'light') {
 			setCheckedState({light: true, dark: false})
@@ -51,7 +43,6 @@ function App() {
 					<input checked={checkedState.light} value='light' type='radio' className='light-box' onChange={handleChange} style={modeBox}/>
 					<span className='checkmark' style={{borderColor: currentMode}}></span>
 					<span>LIGHT</span>
-					{/* <span className='light-text' style={{color:currentMode}}>LIGHT</span> */}
 				</label>
 
 				<label className='checkbox-container' style={{color:currentMode}}>

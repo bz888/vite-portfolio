@@ -92,7 +92,6 @@ export default function Projects ({ currentMode }) {
 			<motion.div
 				className='projects-div'
 			>
-				{/* <motion.div className='project-list'> */}
 				<motion.h2 style={{color:currentMode}} className='project-catalogue'
 					animate={{opacity: [0, 1]}}
 				>■ Projects &#40;web apps&#41;</motion.h2>
@@ -152,7 +151,6 @@ export default function Projects ({ currentMode }) {
 					<div style={{color:currentMode}} className='project-title'>Somezine</div>
 					<div style={{color:currentMode}} className='project-info'>2020/Graduation Project</div>
 				</motion.a>
-				{/* </motion.div> */}
 
 			</motion.div>
 
