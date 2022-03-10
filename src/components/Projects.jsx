@@ -101,7 +101,7 @@ export default function Projects ({ currentMode }) {
 					onHoverEnd={handleHover}
 					onHoverStart={handleHover}
 					whileHover={{opacity: 0.5}}
-					href=''
+					href='https://www.depotartspace.co.nz/event/two-truths/'
 					target='_blank' rel="noreferrer"
 					animate={{x: [200, 0]}}>
 					<div style={{color:currentMode}} className='project-title'>Two Truths One Lie</div>
@@ -124,7 +124,7 @@ export default function Projects ({ currentMode }) {
 					onHoverEnd={handleHover}
 					onHoverStart={handleHover}
 					whileHover={{opacity: 0.5}}
-					href=''
+					href='https://brainfck-interpreter.herokuapp.com/'
 					animate={{x: [400, 0]}}>
 					<div style={{color:currentMode}} className='project-title'>Brainf*ck interpreter</div>
 					<div style={{color:currentMode}} className='project-info'>2021/Personal</div>
