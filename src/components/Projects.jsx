@@ -125,6 +125,7 @@ export default function Projects ({ currentMode }) {
 					onHoverStart={handleHover}
 					whileHover={{opacity: 0.5}}
 					href='https://brainfck-interpreter.herokuapp.com/'
+					target='_blank' rel="noreferrer"
 					animate={{x: [400, 0]}}>
 					<div style={{color:currentMode}} className='project-title'>Brainf*ck interpreter</div>
 					<div style={{color:currentMode}} className='project-info'>2021/Personal</div>
