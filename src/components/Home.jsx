@@ -7,7 +7,7 @@ import { RandomGen } from './RandomGen'
 
 Home.propTypes
 export default function Home ({ currentMode }) {
-	const bio = 'I am young developer with a passion for tech and a mission to present the endless possibilites of web development, I am always in pursuit of new knowledge through experiments and projects.'
+	const bio = 'I am a young developer with a passion for tech and a mission to present the endless possibilites of web development, I am always in pursuit of new knowledge through experiments and projects.'
 	const { handleNav } = useTheme()
 	const [randomChar, setRandomChar] = useState('FULL-STACK')
 	const [repeatVal, setRepeatVal] = useState(0)
