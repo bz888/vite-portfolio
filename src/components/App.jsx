@@ -1,6 +1,6 @@
 // import { motion } from 'framer-motion'
 import React , { useEffect, useState } from 'react'
-import { Route, Routes, useNavigate } from 'react-router-dom'
+import {  Route, Routes, useNavigate } from 'react-router-dom'
 
 import { GlobalStyles } from './GlobalStyles'
 
